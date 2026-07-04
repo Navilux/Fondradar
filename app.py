@@ -41,7 +41,10 @@ TICKER_MAP = {
     "Skanska B": "SKA-B.ST",
     "Tele2 B": "TEL2-B.ST",
     "Telia Company": "TELIA.ST"
-    "eqt": "EQT.ST"
+    "EQT": "EQT.ST",
+    "EQT AB": "EQT.ST",
+    "ABB": "ABB.ST",
+    "ABB Ltd": "ABB.ST"
 }
 
 # Mekaniskt lexikon (Rullgardinsmeny för fonder)
