@@ -28,7 +28,8 @@ TICKER_MAP = {
     "AstraZeneca": "AZN.ST",
     "Ericsson B": "ERIC-B.ST",
     "Saab-B": "SAAB-B.ST",
-    "TRATON SE": "8VW.ST", # Tillagd
+   "TRATON SE": "8TRA.ST",
+    "Traton": "8TRA.ST",
     "SKF B": "SKF-B.ST", # Tillagd
     "Autoliv 0%": "ALIV-SDB.ST", # Tillagd (med Avanzas specifika syntax)
     "Autoliv": "ALIV-SDB.ST",
