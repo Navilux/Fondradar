@@ -40,7 +40,7 @@ TICKER_MAP = {
     "SCA B": "SCA-B.ST",
     "Skanska B": "SKA-B.ST",
     "Tele2 B": "TEL2-B.ST",
-    "Telia Company": "TELIA.ST"
+    "Telia Company": "TELIA.ST",
     "EQT": "EQT.ST",
     "EQT AB": "EQT.ST",
     "ABB": "ABB.ST",
