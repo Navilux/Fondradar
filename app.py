@@ -47,6 +47,7 @@ TICKER_MAP = {
 FUND_MENU = {
     "Spiltan Aktiefond Investmentbolag": "41567",
     "SEB Swedish Value": "87987",
+    "Avanza Sweden": "2480007",
     "Avanza Zero": "325406",
     "PLUS Allabolag Sverige Index": "713028",
     "AMF Aktiefond Sverige": "2059",
