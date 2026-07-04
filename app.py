@@ -102,7 +102,7 @@ if st.sidebar.button("Kör Analys") and fund_id:
             # Extraherar och skriver ut fondens officiella namn från Avanza
             actual_fund_name = fund_data.get('name', 'Okänd Fond')
             st.subheader(f"📊 Resultat för: {actual_fund_name}")
-            st.markdown("Innehav **≥ 5%** och deras relation till **MA200**")
+            st.markdown("Innehav **≥ 3%** och deras relation till **MA200**")
             
             holdings = fund_data.get('holdingChartData', [])
             results = []
@@ -111,7 +111,7 @@ if st.sidebar.button("Kör Analys") and fund_id:
                 name = item.get('name')
                 weight = item.get('y', 0)
                 
-                if weight >= 5.0:
+                if weight >= 3.0:
                     ticker = TICKER_MAP.get(name)
                     
                     if ticker:
@@ -140,7 +140,7 @@ if st.sidebar.button("Kör Analys") and fund_id:
             if results:
                 st.dataframe(pd.DataFrame(results), use_container_width=True)
             else:
-                st.info("Inga innehav över 5% hittades i denna fond.")
+                st.info("Inga innehav över 3% hittades i denna fond.")
         else:
             st.error("Kunde inte hämta data. Kontrollera ID eller Avanzas anslutning.")
             st.error("Kunde inte hämta data. Kontrollera ID eller Avanzas anslutning.")
