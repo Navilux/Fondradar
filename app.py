@@ -53,16 +53,16 @@ TICKER_MAP = {
     "Hennes & Mauritz B": "HM-B.ST",
     "Hennes & Mauritz": "HM-B.ST",
     "H&M B": "HM-B.ST",
-    "H & M Hennes & Mauritz B": "HM-B.ST"
+    "H & M Hennes & Mauritz B": "HM-B.ST",
     "Lifco": "LIFCO-B.ST"
 }
 
 # Mekaniskt lexikon (Rullgardinsmeny för fonder)
 FUND_MENU = {
-    "Spiltan Aktiefond Investmentbolag": "41567",
+    "Avanza Zero": "41567",
     "SEB Swedish Value": "87987",
     "Avanza Sweden": "2480007",
-    "Avanza Zero": "325406",
+    "Spiltan Aktiefond Investmentbolag": "325406",
     "PLUS Allabolag Sverige Index": "1151293",
     "AMF Aktiefond Sverige": "2059",
     "Spiltan Globalfond Investmentbolag": "742045",
