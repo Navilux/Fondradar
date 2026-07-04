@@ -7,6 +7,7 @@ st.set_page_config(page_title="Rederiets Fondradar", layout="wide")
 st.title("⚓ HANSSONS Rederi - Mekanisk Innehavsanalys")
 
 # Mekaniskt lexikon (Aktier)
+# Mekaniskt lexikon (Aktier)
 TICKER_MAP = {
     "Investor B": "INVE-B.ST",
     "Investor A": "INVE-A.ST",
@@ -15,8 +16,9 @@ TICKER_MAP = {
     "Volvo B": "VOLV-B.ST",
     "Assa Abloy B": "ASSA-B.ST",
     "SEB A": "SEB-A.ST",
-    "Swedbank A": "SWEDA.ST",
+    "Swedbank A": "SWED-A.ST", # Rättad ticker
     "Handelsbanken A": "SHB-A.ST",
+    "Nordea Bank": "NDA-SE.ST", # Tillagd
     "Hexagon B": "HEXA-B.ST",
     "Sandvik": "SAND.ST",
     "Evolution": "EVO.ST",
@@ -25,7 +27,20 @@ TICKER_MAP = {
     "Nibe Industrier B": "NIBE-B.ST",
     "AstraZeneca": "AZN.ST",
     "Ericsson B": "ERIC-B.ST",
-    "Saab B": "SAAB-B.ST"
+    "Saab B": "SAAB-B.ST",
+    "TRATON SE": "8VW.ST", # Tillagd
+    "SKF B": "SKF-B.ST", # Tillagd
+    "Autoliv 0%": "ALIV-SDB.ST", # Tillagd (med Avanzas specifika syntax)
+    "Autoliv": "ALIV-SDB.ST",
+    "Hennes & Mauritz B": "HM-B.ST",
+    "Epiroc A": "EPI-A.ST",
+    "Epiroc B": "EPI-B.ST",
+    "Alfa Laval": "ALFA.ST",
+    "Boliden": "BOL.ST",
+    "SCA B": "SCA-B.ST",
+    "Skanska B": "SKA-B.ST",
+    "Tele2 B": "TEL2-B.ST",
+    "Telia Company": "TELIA.ST"
 }
 
 # Mekaniskt lexikon (Rullgardinsmeny för fonder)
