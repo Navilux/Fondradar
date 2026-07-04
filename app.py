@@ -45,7 +45,12 @@ TICKER_MAP = {
     "EQT AB": "EQT.ST",
     "ABB": "ABB.ST",
     "ABB Ltd": "ABB.ST",
-    "Lifco AB": "Lifco.SE"
+    "Lundberg B": "LUND-B.ST",
+    "Lundbergföretagen B": "LUND-B.ST",
+    "L E Lundbergföretagen B": "LUND-B.ST",
+    "LIFCO": "LIFCO-B.ST",
+    "Lifco B": "LIFCO-B.ST",
+    "Lifco": "LIFCO-B.ST"
 }
 
 # Mekaniskt lexikon (Rullgardinsmeny för fonder)
