@@ -50,6 +50,10 @@ TICKER_MAP = {
     "L E Lundbergföretagen B": "LUND-B.ST",
     "LIFCO": "LIFCO-B.ST",
     "Lifco B": "LIFCO-B.ST",
+    "Hennes & Mauritz B": "HM-B.ST",
+    "Hennes & Mauritz": "HM-B.ST",
+    "H&M B": "HM-B.ST",
+    "H & M Hennes & Mauritz B": "HM-B.ST"
     "Lifco": "LIFCO-B.ST"
 }
 
