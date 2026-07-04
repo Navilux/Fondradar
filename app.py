@@ -66,7 +66,6 @@ FUND_MENU = {
     "Spiltan Aktiefond Investmentbolag": "325406",
     "PLUS Allabolag Sverige Index": "1151293",
     "AMF Aktiefond Sverige": "1949",
-    "Spiltan Globalfond Investmentbolag": "693994",
     "Mata in manuellt ID...": "CUSTOM"
 }
 
