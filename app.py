@@ -6,7 +6,7 @@ import pandas as pd
 st.set_page_config(page_title="Rederiets Fondradar", layout="wide")
 st.title("⚓ HANSSONS Rederi - Mekanisk Innehavsanalys")
 
-# Mekaniskt lexikon: Översätter Avanzas aktienamn till Yahoo-tickers för stora svenska bolag
+# Mekaniskt lexikon (Aktier)
 TICKER_MAP = {
     "Investor B": "INVE-B.ST",
     "Investor A": "INVE-A.ST",
@@ -23,20 +23,30 @@ TICKER_MAP = {
     "Industrivärden C": "INDU-C.ST",
     "Essity B": "ESSITY-B.ST",
     "Nibe Industrier B": "NIBE-B.ST",
-    "AstraZeneca": "AZN.ST"
+    "AstraZeneca": "AZN.ST",
+    "Ericsson B": "ERIC-B.ST",
+    "Saab B": "SAAB-B.ST"
 }
 
-def get_avanza_fund_holdings(fund_id):
-    """Hämtar fondens innehav mekaniskt via Avanzas publika API."""
+# Mekaniskt lexikon (Rullgardinsmeny för fonder)
+FUND_MENU = {
+    "Spiltan Aktiefond Investmentbolag": "41567",
+    "Avanza Zero": "325406",
+    "PLUS Allabolag Sverige Index": "713028",
+    "AMF Aktiefond Sverige": "2059",
+    "Spiltan Globalfond Investmentbolag": "742045",
+    "Mata in manuellt ID...": "CUSTOM"
+}
+
+def get_avanza_fund_data(fund_id):
+    """Hämtar all fonddata mekaniskt via Avanzas publika API."""
     url = f"https://www.avanza.se/_api/fund-guide/guide/{fund_id}"
     headers = {'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 16_0 like Mac OS X)'}
     
     try:
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
-            data = response.json()
-            # Plockar ut holdingList om den finns
-            return data.get('holdingChartData', [])
+            return response.json()
         else:
             return None
     except Exception:
@@ -58,20 +68,33 @@ def calculate_ma200(ticker):
 
 # --- GRÄNSSNITT PÅ IPAD ---
 st.sidebar.header("Navigering")
-fund_id = st.sidebar.text_input("Mata in fondens Avanza-ID (ex. 41567 för Spiltan):")
+
+# Skapar rullgardinsmenyn
+selected_fund_name = st.sidebar.selectbox("Välj fond i listan:", list(FUND_MENU.keys()))
+
+# Om Kapten väljer manuell inmatning, visa textfältet
+if FUND_MENU[selected_fund_name] == "CUSTOM":
+    fund_id = st.sidebar.text_input("Mata in fondens unika Avanza-ID:")
+else:
+    fund_id = FUND_MENU[selected_fund_name]
 
 if st.sidebar.button("Kör Analys") and fund_id:
-    with st.spinner("Ansluter till Avanza och korskopplar med Yahoo Finance..."):
-        holdings = get_avanza_fund_holdings(fund_id)
+    with st.spinner("Ansluter till Avanza och beräknar MA200..."):
+        fund_data = get_avanza_fund_data(fund_id)
         
-        if holdings:
+        if fund_data:
+            # Extraherar och skriver ut fondens officiella namn från Avanza
+            actual_fund_name = fund_data.get('name', 'Okänd Fond')
+            st.subheader(f"📊 Resultat för: {actual_fund_name}")
+            st.markdown("Innehav **≥ 5%** och deras relation till **MA200**")
+            
+            holdings = fund_data.get('holdingChartData', [])
             results = []
             
             for item in holdings:
                 name = item.get('name')
-                weight = item.get('y', 0) # Avanza anger ofta vikten som 'y' i chart-data
+                weight = item.get('y', 0)
                 
-                # Styrmannens regel: Exakt 5% eller högre
                 if weight >= 5.0:
                     ticker = TICKER_MAP.get(name)
                     
@@ -99,9 +122,9 @@ if st.sidebar.button("Kör Analys") and fund_id:
                     })
             
             if results:
-                st.subheader(f"Innehav > 5% och deras relation till MA200")
                 st.dataframe(pd.DataFrame(results), use_container_width=True)
             else:
                 st.info("Inga innehav över 5% hittades i denna fond.")
         else:
+            st.error("Kunde inte hämta data. Kontrollera ID eller Avanzas anslutning.")
             st.error("Kunde inte hämta data. Kontrollera ID eller Avanzas anslutning.")
