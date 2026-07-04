@@ -114,10 +114,9 @@ if st.sidebar.button("Kör Analys") and fund_id:
         fund_data = get_avanza_fund_data(fund_id)
         
         if fund_data:
-           # Extraherar fondens namn och datum för senaste portföljuppdatering
+          # Extraherar fondens namn och datum för senaste portföljuppdatering
         actual_fund_name = fund_data.get('name', 'Okänd Fond')
         portfolio_date = fund_data.get('portfolioDate', 'Okänt datum')
-        
         st.subheader(f"📊 Resultat för: {actual_fund_name}")
         st.markdown(f"**📅 Innehaven senast uppdaterade:** {portfolio_date}")
         st.markdown("Innehav **≥ 5%** och deras relation till **MA200**")
