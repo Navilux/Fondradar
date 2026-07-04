@@ -45,7 +45,7 @@ TICKER_MAP = {
     "EQT AB": "EQT.ST",
     "ABB": "ABB.ST",
     "ABB Ltd": "ABB.ST",
-    "Lundberg-b" "Lundberg.SE"
+    "Lundberg-b" "Lund-b.SE"
 }
 
 # Mekaniskt lexikon (Rullgardinsmeny för fonder)
