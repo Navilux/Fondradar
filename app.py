@@ -60,8 +60,8 @@ TICKER_MAP = {
 
 # Mekaniskt lexikon (Rullgardinsmeny för fonder)
 FUND_MENU = {
-    "Avanza Zero": "41567",
     "SEB Swedish Value": "87987",
+    "Avanza Zero": "41567",
     "Avanza Sweden": "2480007",
     "Spiltan Aktiefond Investmentbolag": "325406",
     "PLUS Allabolag Sverige Index": "1151293",
