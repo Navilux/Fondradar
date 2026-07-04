@@ -79,14 +79,15 @@ if st.sidebar.button("Kör Analys") and fund_id:
                         price, ma200 = calculate_ma200(ticker)
                         if price and ma200:
                             status = "🟢 Över MA200" if price >= ma200 else "🔴 Under MA200"
-                       else:
-    status = "⚠️ Data saknas"
-    price = "-"
-    ma200 = "-"
+                        else:
+                            status = "⚠️ Data saknas"
+                            price = "-"
+                            ma200 = "-"
                     else:
                         ticker = "Saknas i lexikon"
                         status = "⚠️ Manuell kontroll krävs"
-                        price, ma200 = "-", "-"
+                        price = "-"
+                        ma200 = "-"
                         
                     results.append({
                         "Aktie": name,
